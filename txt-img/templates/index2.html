@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to Text OCR</title>
+</head>
+<body>
+    
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <button type="submit">Upload Image</button>
+    </form>
+
+    {% if result %}
+        <h2>Recognized Text:</h2>
+        <ul>
+            {% for detection in result %}
+                <li>{{ detection[1] }}</li>
+            {% endfor %}
+        </ul>
+        <!-- <img src="{{ url_for('static', filename='output.jpg') }}" alt="Uploaded Image"> -->
+    {% endif %}
+</body>
+</html>

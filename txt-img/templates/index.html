@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <!--====== Title ======-->
+    <title>Image to text generator</title>
+
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+   
+
+    <!--====== CSS Files LinkUp ======-->
+    <link rel="stylesheet" href="static/assets/css/animate.css" />
+    <link rel="stylesheet" href="static/assets/css/glightbox.min.css" />
+    <link rel="stylesheet" href="static/assets/css/lineIcons.css" />
+    <link rel="stylesheet" href="static/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="static/assets/css/style.css" />
+  </head>
+
+  <body>
+   
+
+    <!--====== PRELOADER PART START ======-->
+    <div class="preloader">
+      <div class="loader">
+        <div class="spinner">
+          <div class="spinner-container">
+            <div class="spinner-rotator">
+              <div class="spinner-left">
+                <div class="spinner-circle"></div>
+              </div>
+              <div class="spinner-right">
+                <div class="spinner-circle"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--====== PRELOADER PART ENDS ======-->
+
+    <!--====== HEADER PART START ======-->
+    <header class="header-area">
+      <div class="navbar-area">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <nav class="navbar navbar-expand-lg">
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  
+                </button>
+
+                
+                <!-- navbar collapse -->
+
+                
+              </nav>
+              <!-- navbar -->
+            </div>
+          </div>
+          <!-- row -->
+        </div>
+        <!-- container -->
+      </div>
+      <!-- navbar area -->
+
+      <div
+        id="home"
+        class="header-hero bg_cover"
+        style="background-image: url(static/assets/images/header/banner-bg.svg)"
+      >
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="header-hero-content text-center">
+                <h3
+                  class="header-sub-title wow fadeInUp"
+                  data-wow-duration="1.3s"
+                  data-wow-delay="0.2s"
+                >
+                Welcome to
+                </h3>
+                <h2
+                  class="header-title wow fadeInUp"
+                  data-wow-duration="1.3s"
+                  data-wow-delay="0.5s"
+                >
+                Image to Text Generator!
+                </h2>
+                <p
+                  class="text wow fadeInUp"
+                  data-wow-duration="1.3s"
+                  data-wow-delay="0.8s"
+                >
+                Our advanced tool allows you to easily convert handwritten text from images into digital text.
+                </p>
+                
+              </div>
+              <!-- header hero content -->
+            </div>
+          </div>
+          <!-- row -->
+          <div class="row">
+            <div class="col-lg-12">
+              <div
+                class="header-hero-image text-center wow fadeIn justify-content-center row"
+                data-wow-duration="1.3s"
+                data-wow-delay="1.4s"
+              >
+
+                <div class="card col-md-4 p-3" style="background: #ffffffa1; border-radius: 30px; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+                    {% if error %}
+                        <p>{{ error }}</p>
+                    {% endif %}
+                
+                    <form method="POST" enctype="multipart/form-data">
+                        <input type="file" class="form-control mt-5" name="file" accept="image/*" required>
+                        <button type="submit" class="btn btn-primary my-5">Upload Image</button>
+                    </form>
+                
+                    {% if result %}
+                        <div class="card p-4">
+                            <h6 style="color: rgb(216, 216, 216);" class="mb-3">Recognized Text:</h6>
+                            <ul>
+                                {% for detection in result %}
+                                    <li>{{ detection[1] }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                </div>
+
+
+              </div>
+              <!-- header hero image -->
+            </div>
+          </div>
+          <!-- row -->
+        </div>
+        <!-- container -->
+        <div id="particles-1" class="particles"></div>
+      </div>
+      <!-- header hero -->
+    </header>
+    <!--====== HEADER PART ENDS ======-->
+
+    
+
+    
+
+    <!--====== FOOTER PART START ======-->
+    <footer id="footer" class="footer-area pt-120">
+     
+        
+        <!-- footer widget -->
+        <div class="footer-copyright bg-primary">
+          
+            <p class="text-center text-white">
+              <b>Image to Text Generator</b>
+            </p>
+    
+        </div>
+        <!-- footer copyright -->
+      </div>
+      <!-- container -->
+      <div id="particles-2"></div>
+    </footer>
+    <!--====== FOOTER PART ENDS ======-->
+
+    <!--====== BACK TOP TOP PART START ======-->
+    <a href="#" class="back-to-top"> <i class="lni lni-chevron-up"> </i> </a>
+    <!--====== BACK TOP TOP PART ENDS ======-->
+
+    <!--====== Javascript Files ======-->
+    <script src="static/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="static/assets/js/wow.min.js"></script>
+    <script src="static/assets/js/glightbox.min.js"></script>
+    <script src="static/assets/js/count-up.min.js"></script>
+    <script src="static/assets/js/particles.min.js"></script>
+    <script src="static/assets/js/main.js"></script>
+  </body>
+</html>
